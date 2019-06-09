@@ -12,6 +12,8 @@ var today = new Date();
   console.log("Today is : " + daylist[day] + ".");
 
 client.on('voiceStateUpdate', (oldMember, newMember) => {
+	day = today.getDay();
+	console.log("Today is : " + daylist[day] + ".");
 	let newChannel = newMember.voiceChannelID;
 	if(newChannel == config.SunChan && daylist[day] != "Sunday"){
 		newMember.setVoiceChannel(config.Dest);
