@@ -23,7 +23,7 @@ client.on('voiceStateUpdate', (oldMember, newMember) => {
 	today.setHours(today.getHours() + today.getTimezoneOffset()/60 - 4);
 	var day = today.getDay();
 
-	console.log(today.toLocaleString('en-US', { timeZone: 'America/New_York' }));
+	console.log(today.toString());
 	console.log("Today is : " + daylist[day] + ".");
 
 	/* 
