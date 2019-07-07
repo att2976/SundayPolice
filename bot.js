@@ -12,7 +12,9 @@ client.once('ready', () => {
 
 client.on('voiceStateUpdate', (oldMember, newMember) => {
 	var today = new Date();
-  	var day = today.getDay();
+	today.setHours(today.getHours() + today.getTimezoneOffset()/60 - 4);
+	var day = today.getDay();
+	console.log(today.toString());
 	console.log("Today is : " + daylist[day] + ".");
 	let newChannel = newMember.voiceChannelID;
 	if(newChannel == config.SunChan && daylist[day] != "Sunday"){
