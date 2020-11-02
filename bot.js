@@ -20,7 +20,7 @@ client.on('voiceStateUpdate', (oldMember, newMember) => {
 	var today = new Date();
 
 	// This sets the offset to UTC-4, Eastern Daylight Time. Will be -5 during Eastern Standard Time
-	today.setHours(today.getHours() + today.getTimezoneOffset()/60 - 4);
+	today.setHours(today.getHours() + today.getTimezoneOffset()/60 - 5);
 	var day = today.getDay();
 
 	console.log(today.toString());
