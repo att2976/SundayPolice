@@ -35,7 +35,7 @@ client.on('voiceStateUpdate', (oldState, newState) => {
 	*/
 	let newChannel = newState.ChannelID;
 	if(newChannel == config.SunChan && daylist[day] != "Sunday"){
-		newState.setChannel(config.Dest);
+		newState.setChannel(null);
 	}
 	else {}
 });
