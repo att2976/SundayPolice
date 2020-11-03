@@ -13,9 +13,9 @@ var daylist = ["Sunday","Monday","Tuesday","Wednesday ","Thursday","Friday","Sat
 This event fires whenever anyone leaves or joins a channel.
 The date code has to be inside of it to work, if it was outside
 it would be considered a global variable.
-oldMember is the channel being left, newMember is the channel being entered.
+oldState is the channel being left, newState is the channel being entered.
 */
-client.on('voiceStateUpdate', (oldMember, newMember) => {
+client.on('voiceStateUpdate', (oldState, newState) => {
 	// Empty params sets it to the current time
 	var today = new Date();
 
@@ -28,14 +28,14 @@ client.on('voiceStateUpdate', (oldMember, newMember) => {
 
 	/* 
 	First checks if someone is trying to connect to the Sunday Channel.
-	This compares the newMember ChannelID and the sunday channel ID specified in the config
+	This compares the newState.ChannelID and the sunday channel ID specified in the config
 	If they are, check if it is sunday.
 	If it is sunday, do nothing. 
 	If not, move the user to the destination channel specified in the config
 	*/
-	let newChannel = newMember.voiceChannelID;
+	let newChannel = newState.ChannelID;
 	if(newChannel == config.SunChan && daylist[day] != "Sunday"){
-		newMember.setVoiceChannel(config.Dest);
+		newState.setChannel(config.Dest);
 	}
 	else {}
 });
