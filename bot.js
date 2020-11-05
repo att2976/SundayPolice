@@ -23,7 +23,7 @@ The date code has to be inside of it to work, if it was outside
 it would be considered a global variable.
 oldMember is the channel being left, newMember is the channel being entered.
 */
-client.on('voiceStateUpdate', (oldMember, newMember) => {
+client.on("voiceStateUpdate", (oldMember, newMember) => {
   // Empty params sets it to the current time
   var today = new Date();
 
